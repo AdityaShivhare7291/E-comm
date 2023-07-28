@@ -13,6 +13,7 @@ const Login = () => {
       <div className='main-container'>
         <div className='container'>
           <Stack direction={'column'} spacing={3}>
+          <div>Login</div>
             <LoginFields />
             <div className='center'>
               <LoginBtn btnText="Login" />
