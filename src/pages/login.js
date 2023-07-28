@@ -1,23 +1,28 @@
-import React from 'react'
-import Fields from '../components/fields';
-import Buttony from '../components/buttons';
+import React from 'react';
+import LoginFields from './../components/LoginFields';
+import LoginBtn from '../components/buttons';
 import Radiy from '../components/radia';
 import './login.css'
 import { Stack } from '@mui/material';
-export default function login() {
+
+
+const Login = () => {
+
   return (
-    <div className='main-container'>
-      <div className='container'>
-        <Stack direction={'column'} spacing={3}>
-          <Fields />
-          <div className='centers'>
-            <Radiy />
-          </div>
-          <div className='center'>
-            <Buttony />
-          </div>
-        </Stack>
+    <>
+      <div className='main-container'>
+        <div className='container'>
+          <Stack direction={'column'} spacing={3}>
+            <LoginFields />
+            <div className='center'>
+              <LoginBtn btnText="Login" />
+            </div>
+          </Stack>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
+
+
+export default Login;
