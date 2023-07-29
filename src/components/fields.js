@@ -37,7 +37,11 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 
 
 
-export default function fields() {
+export default function fields({ values, handleChange }) {
+
+  const { name, email, password, phoneNumber } = values;
+
+
   return (
     <Stack spacing={5}>
         <Stack direction={"column"} spacing={3}>
@@ -45,6 +49,8 @@ export default function fields() {
         label="Name"
         variant="outlined"
         sx={{width:300}} 
+        onChange={handleChange("name")} 
+        value={name}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -57,6 +63,8 @@ export default function fields() {
         label="E-mail"
         variant="outlined"
         sx={{width:300}} 
+        onChange={handleChange("email")} 
+        value={email}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -66,9 +74,11 @@ export default function fields() {
         }}
       />
         <CustomTextField
-        label="password"
+        label="Password"
         variant="outlined"
         sx={{width:300}} 
+        onChange={handleChange("password")} 
+        value={password}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -81,6 +91,8 @@ export default function fields() {
         label="Phone Number"
         variant="outlined"
         sx={{width:300}} 
+        onChange={handleChange("phoneNumber")} 
+        value={phoneNumber}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

@@ -4,7 +4,6 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 
 
-
 const theme = createTheme({
   // Your custom theme configurations
 });
@@ -12,7 +11,6 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <MyComponent /> */}
       <Signup />
       {/* <Login /> */}
     </ThemeProvider>

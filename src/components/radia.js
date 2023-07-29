@@ -20,7 +20,10 @@ const CustomRadio = styled(Radio)(({ theme }) => ({
 }));
 
 
-const CustomForm = () => {
+const CustomForm = ({ values, handleChange }) => {
+
+  const { gender } = values;
+
   return (
     <CustomFormControl >
       <CustomFormLabel id="demo-row-radio-buttons-group-label">
