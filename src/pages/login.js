@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginFields from './../components/LoginFields';
+import LoginFields from '../components/LoginFields';
 import LoginBtn from '../components/buttons';
 import Radiy from '../components/radia';
 import './login.css'
