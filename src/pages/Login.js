@@ -12,7 +12,7 @@ const Login = () => {
             <div className='main-container'>
                 <div className='container'>
                     <Stack direction={'column'} spacing={3}>
-                        <Typography variant="h4" component="h1" mb={4} color="#ffffff" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                        <Typography variant="h4" component="h1" mb={4} color="#ffffff" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             Login
                         </Typography>
                         <LoginFields />

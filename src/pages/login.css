@@ -18,11 +18,11 @@
 }
 
 .center {
-    width: 185px;
+    width: 106px;
     display: inline-block;
     position: relative;
     left: 50%;
-    transform: translateX(-40%);
+    transform: translateX(-50%);
 }
 
 .centers {

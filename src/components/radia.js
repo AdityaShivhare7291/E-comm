@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 const CustomFormControl = styled(FormControl)(({ theme }) => ({
   backgroundColor: '#000000', // Change the background color
   color: '#ffffff',
-  padding: theme.spacing(2), // Add padding
+  padding: '14px', // Add padding
   // borderRadius: theme.spacing(1), // Add border radius
   border: "1px solid #a3128b",
 }));

@@ -4,8 +4,9 @@
 }
 
 .main-container {
+    display: inline-block;
+    height: 635px;
     width: 100%;
-    height: 100vh;
     background-color: black;
 }
 
@@ -18,7 +19,7 @@
 }
 
 .center {
-    width: 111px;
+    width: 121px;
     display: inline-block;
     position: relative;
     left: 50%;
@@ -27,7 +28,7 @@
 
 .centers {
     /* width: 272px; */
-    width: 310px;
+    width: 301px;
     display: inline-block;
     position: relative;
     left: 50%;
