@@ -3,13 +3,13 @@
     padding: 0;
 }
 
-.main-container {
+.login-container {
     width: 100%;
     height: 100vh;
     background-color: black;
 }
 
-.container {
+.sub-container {
     display: inline-block;
     position: relative;
     top: 50%;
@@ -17,17 +17,11 @@
     transform: translate(-50%, -50%);
 }
 
+.loginBtn {
+    width: 185px;
+  
 .center {
     width: 106px;
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.centers {
-    /* width: 272px; */
-    width: 310px;
     display: inline-block;
     position: relative;
     left: 50%;

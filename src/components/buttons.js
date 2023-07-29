@@ -3,8 +3,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 
-const CustomButton = styled(Button)(({ myColor }) => ({
-  background: ` ${myColor}`,
+const CustomButton = styled(Button)(({ mycolor }) => ({
+  background: ` ${mycolor}`,
   borderRadius: 8,
   border: 0,
   color: 'white',
@@ -16,7 +16,7 @@ function MyComponent({ btnText }) {
   return (
     <div>
       <Box sx={{ display: 'flex', gap: '16px' }}>
-        <CustomButton myColor="linear-gradient(to right, #000080, #a3128b)" variant="contained">
+        <CustomButton mycolor="linear-gradient(to right, #000080, #a3128b)" variant="contained">
           {btnText}
         </CustomButton>
 

@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
+
 const theme = createTheme({
   // Your custom theme configurations
 });
@@ -10,9 +11,8 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <MyComponent /> */}
-      
-      <Login /> 
+      <Signup />
+      {/* <Login /> */}
     </ThemeProvider>
   );
 }
