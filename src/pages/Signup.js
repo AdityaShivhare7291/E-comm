@@ -29,7 +29,7 @@ export default function Signup() {
     setValues({ ...values });
     try {
       const response = await axios.post("http://localhost:5000/signup", {
-        name, email, password, phoneNumber, gender
+        name, email, password, phoneNumber
       });
       console.log("resp: ", response.data);
     } catch (error) {
