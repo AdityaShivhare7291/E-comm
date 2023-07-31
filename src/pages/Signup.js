@@ -14,10 +14,11 @@ export default function Signup() {
     email: "",
     password: "",
     phoneNumber: "",
+    age: "",
     gender: "",
   })
 
-  const { name, email, password, phoneNumber, gender } = values;
+  const { name, email, password, phoneNumber, age, gender } = values;
 
 
   const handleChange = name => e => {
@@ -29,7 +30,16 @@ export default function Signup() {
     setValues({ ...values });
     try {
       const response = await axios.post("http://localhost:5000/signup", {
-        name, email, password, phoneNumber
+        name, email, password, phoneNumber, age, gender
+      });
+      setValues({
+        ...values,
+        name: "",
+        email: "",
+        password: "",
+        phoneNumber: "",
+        age: "",
+        gender: "",
       });
       console.log("resp: ", response.data);
     } catch (error) {
@@ -41,13 +51,14 @@ export default function Signup() {
   return (
     <div className='main-container'>
       <div className='container'>
-        <Typography variant="h4" component="h1" mb={4} color="#ffffff" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Typography variant="h4" component="h1" mb={4} color="#ffffff"
+          sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Sign up
         </Typography>
         <Stack direction={'column'} spacing={3}>
-          <Fields values={values} setValues={setValues} handleChange={handleChange} />
+          <Fields values={values} handleChange={handleChange} />
           <div className='centers'>
-            <Radiy values={values} setValues={setValues} handleChange={handleChange} />
+            <Radiy values={values} handleChange={handleChange} />
           </div>
           <div onClick={onSubmit} className='center'>
             <Buttony btnText="Sign up" />
