@@ -11,12 +11,12 @@ const CustomFormControl = styled(FormControl)(({ theme }) => ({
 }));
 
 const CustomFormLabel = styled(FormLabel)(({ theme }) => ({
-  fontSize: '0.9rem', 
-  color: '#ffffff', 
+  fontSize: '0.9rem',
+  color: '#ffffff',
 }));
 
 const CustomRadio = styled(Radio)(({ theme }) => ({
-  color: 'blue', 
+  color: 'blue',
 }));
 
 
@@ -33,14 +33,24 @@ const CustomForm = ({ values, handleChange }) => {
         row
         aria-labelledby="demo-row-radio-buttons-group-label"
         name="row-radio-buttons-group"
+        onChange={handleChange("gender")}
+        value={gender}
       >
         <FormControlLabel
           value="female"
           control={<CustomRadio />}
           label="Female"
         />
-        <FormControlLabel value="male" control={<CustomRadio />} label="Male" />
-        <FormControlLabel value="other" control={<CustomRadio />} label="Other" />
+        <FormControlLabel
+          value="male"
+          control={<CustomRadio />}
+          label="Male"
+        />
+        <FormControlLabel
+          value="other"
+          control={<CustomRadio />}
+          label="Other"
+        />
       </RadioGroup>
     </CustomFormControl>
   );
