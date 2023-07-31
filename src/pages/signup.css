@@ -4,8 +4,9 @@
 }
 
 .main-container {
+    display: inline-block;
+    height: 635px;
     width: 100%;
-    height: 100vh;
     background-color: black;
 }
 
@@ -18,16 +19,16 @@
 }
 
 .center {
-    width: 185px;
+    width: 121px;
     display: inline-block;
     position: relative;
     left: 50%;
-    transform: translateX(-30%);
+    transform: translateX(-50%);
 }
 
 .centers {
     /* width: 272px; */
-    width: 310px;
+    width: 301px;
     display: inline-block;
     position: relative;
     left: 50%;
