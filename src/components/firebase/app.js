@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./appfire.css";
 import {
   getAuth,
@@ -16,6 +16,9 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import { Stack, TextField } from "@mui/material";
 import InputAdornment from '@mui/material/InputAdornment';
 import { styled } from '@mui/material/styles';
+
+
+
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
   '& .MuiOutlinedInput-root': {
@@ -47,15 +50,20 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 
 
 
+
 function App() {
   const auth = getAuth(app);
   auth.useDeviceLanguage();
   const [phoneNumber, setPhoneNumber] = useState();
-  const [otp, setOtp] = useState();
+  const digitCount = 6;
+  const [otp, setOtp] = useState(new Array(digitCount).fill(''));
+  const inputRef = useRef([]);
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const hello="+91 "+ phoneNumber.toString();
+    const hello = "+91 " + phoneNumber.toString();
     alert("it reached");
     const appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, hello, appVerifier)
@@ -73,10 +81,31 @@ function App() {
       });
   };
 
+
+  const handleChangeOtp = (idx, value) => {
+    setOtp((prevOtp) => {
+      const newOtp = [...prevOtp];
+      newOtp[idx] = value;
+      return newOtp;
+    })
+
+    if (value !== '' && inputRef.current[idx + 1]) {
+      inputRef.current[idx + 1].focus();
+    }
+  }
+
+
+  const handleRemoveOtp = (e, idx) => {
+    if (e.key === 'Backspace' && idx > 0 && otp[idx] === '') {
+      inputRef.current[idx - 1].focus();
+    }
+  };
+
+
   const handleOtpSubmit = (e) => {
     e.preventDefault();
     /*global confirmationResult*/
-    let otpstri=otp.toString();
+    let otpstri = otp.toString();
     confirmationResult
       .confirm(otpstri)
       .then((result) => {
@@ -101,38 +130,38 @@ function App() {
   }, []);
   return (
     <div className="otp-main-container">
-     <div className="otp-sub-container">
+      <div className="otp-sub-container">
         <Stack spacing={5}>
-      <form >
-        <Stack spacing={2}>
-      <CustomTextField
-          label="Phone-Number"
-          variant="outlined"
-          type="Number"
-          sx={{ width: 300 }}
-          onChange={(e)=>{setPhoneNumber(e.target.value)}}
-          value={phoneNumber}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <MailIcon />
-                <span id="pho">+91</span>
-              </InputAdornment>
-            ),
-          }}
-        />
-        <span id="recaptcha"></span>
-        <div onClick={handleSubmit} >
-        <Button btnText="Send Otp"  type="submit" sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          Send Otp
-        </Button>
-        </div>
-        </Stack>
-      </form>
-      
-      <form >
-        <Stack spacing={2}>
-      <CustomTextField
+          <form >
+            <Stack spacing={2}>
+              <CustomTextField
+                label="Phone-Number"
+                variant="outlined"
+                type="Number"
+                sx={{ width: 300 }}
+                onChange={(e) => { setPhoneNumber(e.target.value) }}
+                value={phoneNumber}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <MailIcon />
+                      <span id="pho">+91</span>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+              <span id="recaptcha"></span>
+              <div onClick={handleSubmit} >
+                <Button btnText="Send Otp" type="submit" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  Send Otp
+                </Button>
+              </div>
+            </Stack>
+          </form>
+
+          <form >
+            <Stack spacing={2}>
+              {/* <CustomTextField
           label="Otp"
           variant="outlined"
           type="Number"
@@ -148,14 +177,35 @@ function App() {
               </InputAdornment>
             ),
           }}
-        />
-        <div onClick={handleOtpSubmit}>
-        <Button btnText="Verify"   sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        </Button>
-        </div>
+        /> */}
+
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
+                {otp.map((value, idx) => (
+                  <TextField
+                    key={idx}
+                    inputRef={(ref) => (inputRef.current[idx] = ref)}
+                    type="text"
+                    value={value}
+                    autoFocus={idx === 0}
+                    onChange={(e) => handleChangeOtp(idx, e.target.value)}
+                    onKeyDown={(e) => handleRemoveOtp(e, idx)}
+                    inputProps={{
+                      maxLength: 1,
+                      style: { textAlign: 'center', fontSize: 10, maxWidth: '25px', border: '3px solid #890f89', borderRadius: "5px", color: '#ffffff' },
+                    }}
+                  />
+                ))}
+              </div>
+
+
+
+              <div onClick={handleOtpSubmit}>
+                <Button btnText="Verify" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                </Button>
+              </div>
+            </Stack>
+          </form>
         </Stack>
-      </form>
-      </Stack>
       </div>
     </div>
 
