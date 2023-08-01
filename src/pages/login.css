@@ -18,8 +18,9 @@
 }
 
 .loginBtn {
-    width: 185px;
-  
+    width:100%
+    
+}
 .center {
     width: 106px;
     display: inline-block;
