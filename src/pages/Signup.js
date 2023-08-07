@@ -57,17 +57,6 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 export default function Signup() {
 
   const auth = getAuth(app);
@@ -203,7 +192,7 @@ if(!resy)
   const navigate=useNavigate();
   
 
-  const { name, email, password, phoneNumber, age, gender } = values;
+ const { name, email, password, phoneNumber, age, gender } = values;
 
 
   const handleChange = name => e => {

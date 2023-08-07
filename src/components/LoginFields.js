@@ -7,6 +7,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import { Stack,TextField } from "@mui/material";
 import InputAdornment from '@mui/material/InputAdornment';
 import { styled } from '@mui/material/styles';
+import { Email } from '@mui/icons-material';
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
     '& .MuiOutlinedInput-root': {
@@ -37,14 +38,18 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
 
 
 
-  const LoginFields = () => {
+  const LoginFields = ({value,handleChange}) => {
 
+    const {email,password}=value;
+      console.log(email,"nasjnjasn",password);
   return (
     <Stack spacing={5}>
         <Stack direction={"column"} spacing={3}>
         <CustomTextField
         label="Email"
         variant="outlined"
+        onChange={handleChange("email")}
+        value={email}
         sx={{width:300}} 
         InputProps={{
           startAdornment: (
@@ -58,6 +63,8 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
         label="Password"
         variant="outlined"
         sx={{width:300}} 
+        value={password}
+        onChange={handleChange("password")}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
