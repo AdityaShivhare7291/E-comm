@@ -21,7 +21,7 @@ function App() {
    <Route path='/' Component={Home} ></Route>
    </Route>
    <Route path='/sign' Component={Signup}></Route>
-   <Route path='/login' Component={Otpverify}></Route>
+   <Route path='/login' Component={Login}></Route>
    <Route path='/otpverify' Component={Otpverify}></Route>
    </Routes>
    
